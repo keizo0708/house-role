@@ -1,0 +1,28 @@
+<h1><%= @house.name %> ルール一覧</h1>
+
+<div class="new-role">
+  <%= link_to "新規ルールを作成する", new_house_role_path(@house), class:"post" %>
+</div>
+
+<br/>
+
+<div class="role-category">
+  <div class="category-name">
+    全部屋共通
+  </div>
+  <% @roles.where(category_id: 2).each do |role| %>
+    <div class="article">
+      <div class="article-title">
+        <%= role.title %>
+      </div>
+      <div class="article-text">       
+        <label>
+          <input type="checkbox" name="level" value="bad">
+          <%= role.content %>
+        </label>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+<br/>

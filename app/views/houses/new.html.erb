@@ -20,7 +20,7 @@
   <div class='chat-room-form__field--right'>
     <select>
       <option value="">チャットするユーザーを選択してください</option>
-      <% User.all.each do |user| %>
+      <% User.where.not(id: current_user.id).each do |user| %>
         <option><%= user.nickname %></option>
       <% end %>
     </select>

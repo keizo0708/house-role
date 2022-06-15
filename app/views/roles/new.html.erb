@@ -1,0 +1,9 @@
+<%= form_with model: @role, url:house_roles_path(@house.id), local: true do |f| %>
+  <div class="article-box">
+    記事を投稿する
+    <%= f.text_field :title, class:"title", placeholder:"タイトル" %>
+    <%= f.text_area :content, class:"content", placeholder:"テキスト" %>
+    <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"genre-select"}) %>
+    <%= f.submit "投稿する" ,class:"btn" %>
+  </div>
+<% end %>
