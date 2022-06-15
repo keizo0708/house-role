@@ -1,0 +1,90 @@
+<div class="headre">
+  <%= link_to 'Share House Role', root_path %>
+  <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
+</div>
+
+
+<div class="main">
+
+  <div class="new-house">
+    <%= link_to 'あたらしいHouseをつくる', new_house_path %>
+  </div>
+
+  <div class="houses-list">
+    <div class="house-index">House一覧</div><br/>
+    <% @houses.each do |house| %>
+      <div class="house">
+        <div class="house-left">
+          <div class="house-left-top">
+            <div class="house-name">
+              <%= house.name %>
+            </div>
+            <div class="house-members">
+              <%= house.users.count %>人
+            </div>
+          </div>
+          <div class="house-introduction">
+            <%= house.house_introduction %>
+          </div>
+          <div class="house-role">
+            <%= link_to 'ルールブックを確認する', house_roles_path(house), method: :get %>
+          </div>
+        </div>
+        <div class="house-right">
+          <div class="join-house">
+            <%= link_to '参加', house_join_path(house) %>
+          </div>
+          <div class="delete-house">
+            <%= link_to '退会', house_path(house), method: :delete %>
+          </div>
+          <div class="delete-house-all">
+            <%= link_to '削除', house_all_destroy_path(house.id), method: :delete %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="user-list">
+    <div class="following-index">User一覧</div><br/>
+    <% @users.each do |user| %>
+      <div class="user">
+        <div class="user-left">
+          <div class="following-nickname">
+            <%= link_to user.nickname, '#' %>
+          </div>
+        </div>
+        <div class="follow-right">
+          <%= render 'relationships/follow_button', user: user %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="followings-list">
+    <div class="following-index">Following一覧</div><br/>
+    <% @followings.each do |following| %>
+      <div class="following">
+        <div class="following-left">
+          <div class="following-nickname">
+            <%= link_to following.nickname, '#' %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="followers-list">
+    <div class="followers-index">Follower一覧</div><br/>
+    <% @followers.each do |follower| %>
+      <div class="following">
+        <div class="following-left">
+          <div class="following-nickname">
+            <%= link_to follower.nickname, '#' %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+</div>

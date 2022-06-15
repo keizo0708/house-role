@@ -1,0 +1,34 @@
+<div class="items-sell-main">
+  <h2 class="items-sell-title">Houseの情報を入力</h2>
+  <%= form_with model: @house, id: 'new_item', local: true do |f| %>
+
+  <div class="new-items">
+    <div class="weight-bold-text">
+      Houseの名前
+      <span class="indispensable">必須</span>
+    </div>
+    <%= f.text_area :name, class:"items-text", id:"item-name", placeholder:"名前（必須 40文字まで)", maxlength:"40" %>
+    <div class="items-explain">
+      <div class="weight-bold-text">
+        Houseの紹介
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.text_area :house_introduction, class:"items-text", id:"item-info", placeholder:"Houseの説明（必須 1,000文字まで）" ,rows:"7" ,maxlength:"1000" %>
+    </div>
+  </div>
+
+  <div class='chat-room-form__field--right'>
+    <select>
+      <option value="">チャットするユーザーを選択してください</option>
+      <% User.all.each do |user| %>
+        <option><%= user.nickname %></option>
+      <% end %>
+    </select>
+  </div>
+
+  <div class="sell-btn-contents">
+    <%= f.submit "作成する" ,class:"sell-btn" %>
+    <%=link_to 'もどる', root_path, class:"back-btn" %>
+  </div>
+  <% end %>
+</div>
