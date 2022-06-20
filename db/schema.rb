@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_06_15_102221) do
+ActiveRecord::Schema.define(version: 2022_06_17_130817) do
 
   create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
@@ -45,7 +45,6 @@ ActiveRecord::Schema.define(version: 2022_06_15_102221) do
   end
 
   create_table "roles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "title", null: false
     t.text "content", null: false
     t.integer "category_id", null: false
     t.bigint "house_id"

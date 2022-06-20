@@ -1,9 +1,29 @@
-<%= form_with model: @role, url:house_roles_path(@house.id), local: true do |f| %>
-  <div class="article-box">
-    記事を投稿する
-    <%= f.text_field :title, class:"title", placeholder:"タイトル" %>
-    <%= f.text_area :content, class:"content", placeholder:"テキスト" %>
-    <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"genre-select"}) %>
-    <%= f.submit "投稿する" ,class:"btn" %>
+<%= render 'shared/header' %>
+
+<div class="new-main">
+  
+  <div class="new-form">
+    <div class="infomation">
+      Roleを入力
+    </div>
+
+    <%= form_with model: [@house, @role], local: true do |f| %>
+
+    <div class="input-form">
+      <div class="new-name">
+        <%= f.label :content, "カテゴリー" %><br/>
+        <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"genre-select"}) %>
+      </div>
+      <div class="new-content">
+        <%= f.label :content, "内容" %><br/>
+        <%= f.text_area :content, class:"new-text", id:"item-name", placeholder:"（必須 1000文字まで)", maxlength:"40" %>
+      </div>
+    </div>
+
+    <div class="new-btn">
+      <%= f.submit "作成する" %>
+    </div>
+    <% end %>
+
   </div>
-<% end %>
+</div>

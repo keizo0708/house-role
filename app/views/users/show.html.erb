@@ -3,7 +3,7 @@
 <div class="user-main">
   <div class="user">
     <div class="nickname">
-      <%= "#{@user.nickname}さんのページ" %>
+      <%= "#{@user.nickname}さん マイページ" %>
     </div>
     <div class="introduction">
       <%= "紹介文：#{@user.user_introduction}" %>
@@ -28,6 +28,9 @@
             <div class="house-name">
               <li><%= house.name %></li>
             </div>
+            <div class="house-introduction">
+              <%= house.house_introduction %>
+            </div>
           </div>
           <div class="house-list-right">
             <%= link_to 'ルールを見る', house_roles_path(house), method: :get %>
@@ -44,16 +47,19 @@
       <div class="house_index">
         所属ハウス一覧
       </div>
-      <% @user.houses.where.not(owner_id: current_user.id).each do |house| %>
+      <% @houses.where.not(owner_id: current_user.id).each do |house| %>
         <div class="house-list">
           <div class="house-list-left">
             <div class="house-name">
               <li><%= house.name %></li>
             </div>
+            <div class="house-introduction">
+              <%= house.house_introduction %>
+            </div>
           </div>
           <div class="house-list-right">
             <%= link_to 'ルールを見る', house_roles_path(house), method: :get %>
-            <% if house.user_ids.include?(current_user.id) %>
+            <% if house.users.ids.include?(current_user.id) %>
               <%= link_to '退会する', house_path(house), method: :delete %>
             <% else %>
               <%= link_to '参加する', house_join_path(house) %>
@@ -72,6 +78,9 @@
           <div class="house-list-left">
             <div class="house-name">
               <li><%= following.nickname %></li>
+            </div>
+            <div class="house-introduction">
+              <%= following.user_introduction %>
             </div>
           </div>
           <div class="house-list-right">
@@ -92,6 +101,9 @@
             <div class="house-name">
               <li><%= follower.nickname %></li>
             </div>
+            <div class="house-introduction">
+              <%= follower.user_introduction %>
+            </div>
           </div>
           <div class="house-list-right">
             <%= link_to '詳細をみる', user_path(follower) %>
@@ -100,6 +112,6 @@
         </div>
       <% end %>
     </div>
-  </div>   
+  </div>
 
 </div>

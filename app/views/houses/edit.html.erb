@@ -20,19 +20,8 @@
       </div>
     </div>
 
-    <div class="select-user-form">
-      <select>
-        <option>招待するユーザーを選択してください</option>
-        <% User.where.not(id: current_user.id).each do |user| %>
-          <div class="select-user">
-            <option><%= user.nickname %></option>
-          </div>
-        <% end %>
-      </select>
-    </div>
-
     <div class="new-btn">
-      <%= f.submit "作成する" %>
+      <%= f.submit "更新する" %>
     </div>
     <% end %>
 

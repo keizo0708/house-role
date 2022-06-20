@@ -1,7 +1,7 @@
 class RolesController < ApplicationController
   def index
     @house = House.find(params[:house_id])
-    @roles = Role.order("created_at DESC")
+    @roles = @house.roles.order("created_at ASC")
   end
   
   def new
@@ -19,9 +19,19 @@ class RolesController < ApplicationController
     end
   end
 
+  def destroy
+    @house = House.find(params[:house_id])
+    @role = @house.roles.find(params[:id])
+    if @role.destroy
+      redirect_to action: :index
+    else
+      render :index
+    end
+  end
+
   private
 
   def role_params
-    params.require(:role).permit(:title, :content, :category_id)
+    params.require(:role).permit(:content, :category_id)
   end
 end

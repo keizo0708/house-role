@@ -1,15 +1,666 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+/******************************************************** 
+　ログイン画面
+********************************************************/
+.session-header {
+  width: 100vw;
+  height: 100px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.session-title a {
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-decoration: none;
+  color: #33272a;
+}
+
+.session-list a {
+  color: #33272a;
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.login {
+  height: calc(100vh - 100px);
+  background-image: url("/images/house_role.png");
+  background-size: cover;
+}
+
+.login-container {
+  width: 650px;
+  height: 160px;
+  padding: 30px;
+  background-color: #faeee7;
+  border: 2px solid #33272a;
+  border-radius: 7px;
+  margin: 0 auto;
+}
+
+.login-form {
+  color: #33272a;
+}
+
+.field {
+  color: #33272a;
+  margin-bottom: 10px;
+}
+
+.field input {
+  width: 600px;
+}
+
+/******************************************************** 
+　ヘッダー
+********************************************************/
+
+.header-main {
+  height: 100px;
+  border-bottom: 2px solid #33272a;
+}
+
+.logo-title {
+  text-align: center;
+  font-size: 2.4rem;
+  font-weight: 700;
+}
+
+.logo-title a {
+  color: #33272a;
+  text-decoration: none;
+}
+
+.header-list {
+  width: 900px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
+  margin-top: 10px;
+}
+
+.header-list a {
+  color: #33272a;
+  text-decoration: none;
+  font-size: 1.0rem;
+  font-weight: 700;
+}
+
+/******************************************************** 
+　houses#index
+********************************************************/
+.user-main {
+  background-color: #faeee7;
+}
+
+.user {
+  padding: 30px 0;
+  width: 900px;
+  margin: 0 auto;
+}
+
+.nickname {
+  color: #33272a;
+  font-size: 2.0rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.introduction {
+  color: #33272a;
+  font-size: 1.5rem;
+  font-weight: 400;
+  border-bottom: 1px solid #33272a;
+  text-align: center;
+}
+
+.new-house {
+  width: 400px;
+  height: 70px;
+  line-height: 70px;
+  margin: 70px auto 0;
+  text-align: center;
+  border-radius: 7px;
+  background-color: #33272a;
+}
+
+.new-house a {
+  color: #fffffe;
+  text-decoration: none;
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+
+
+
+
+.my-house {
+  width: 900px;
+  margin: 0 auto;
+  padding-bottom: 50px;
+}
+
+.my-container {
+  margin-bottom: 50px;
+  background-color: #fffffe;
+  padding: 30px;
+  border-radius: 5px;
+}
+
+.house_index {
+  color: #33272a;
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-align: center;
+  line-height: 50px;
+  width: 600px;
+  margin: 0 auto;
+  border-bottom: 1px solid #33272a;
+}
+
+.house-list {
+  color: #33272a;
+  font-size: 1.0rem;
+  font-weight: 700;
+  display: flex;
+  justify-content: space-around;
+  margin-top: 30px;
+}
+
+.house-list-left {
+  display: flex;
+}
+
+.house-name {
+  width: 150px;
+}
+
+.house-list-right a {
+  color: #33272a;
+  text-decoration: none;
+  display: block;
+  border-bottom: 3px solid #c3f0ca;
+  margin-bottom: 5px;
+  text-align: center;
+}
+
+/******************************************************** 
+　roles#index
+********************************************************/
+.role-main {
+  background-color: #faeee7;
+}
+
+.new-role {
+  width: 400px;
+  height: 70px;
+  margin: 50px auto 0;
+  text-align: center;
+  border: 2px solid #33272a;
+  border-radius: 7px;
+  background-color: #33272a;
+}
+
+.new-role a {
+  color: #fffffe;
+  text-decoration: none;
+  font-size: 1.5rem;
+  line-height: 70px;
+  font-weight: 700;
+}
+
+.my-house-role {
+  padding-bottom: 50px;
+}
+
+.role-index {
+  color: #33272a;
+  width: 900px;
+  margin: 30px auto;
+}
+
+.category-name {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #33272a;
+  border-bottom: 2px solid #33272a;
+}
+
+.role-container {
+  background-color: #fffffe;
+  border: 2px solid #33272a;
+  border-radius: 7px;
+  margin-bottom: 10px;
+  padding: 10px 30px;
+}
+
+.role-list {
+  color: #33272a;
+  font-size: 1.0rem;
+  font-weight: 700;
+  display: flex;
+  justify-content: space-between;
+}
+
+.role-content {
+
+  color: #33272a;
+  font-size: 1.0rem;
+  font-weight: 700;
+}
+
+.role-delete a {
+  color: #33272a;
+  font-size: 1.0rem;
+  font-weight: 700;
+  text-decoration: none;
+  border-bottom: 3px solid #c3f0ca;
+}
+
+/******************************************************** 
+　house#new
+********************************************************/
+
+.new-main {
+  background-color: #faeee7;
+  height: calc(100vh - 100px);
+}
+
+.new-form {
+  width: 400px;
+  margin: 0 auto;
+  color: #33272a;
+}
+
+.infomation {
+  font-size: 1.5rem;
+  font-weight: 700;
+  padding: 110px 0 50px 0;
+  text-align: center;
+}
+
+.new-name {
+  margin-bottom: 15px;
+  font-size: 1.0rem;
+  font-weight: 700;
+}
+
+.new-introduction {
+  font-size: 1.0rem;
+  font-weight: 700;
+}
+
+.new-content {
+  font-size: 1.0rem;
+  font-weight: 700;
+}
+
+.new-text {
+  width: 400px;
+}
+
+.select-user-form select {
+  height: 20px;
+  width: 400px;
+  font-size: 0.8rem;
+  font-weight: 400;
+  margin-top: 10px;
+}
+
+.new-btn {
+  margin-top: 20px;
+  display: flex;
+  justify-content: right;
+}
+
+.new-name select {
+  width: 400px;
+}
+
+.new-content textarea {
+  width: 400px;
+  height: 150px;
+}
+
+
+/******************************************************** 
+　user#search
+********************************************************/
+
+.search-form {
+  width: 500px;
+  margin: 30px auto;
+  text-align: center;
+}
+
+.search-input {
+  width: 400px;
+}
+
+
+@media (max-width: 599px) {
+  /******************************************************** 
+  　ログイン画面
+  ********************************************************/
+  .session-header {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  
+  .session-title a {
+    font-size: 2.0rem;
+    font-weight: 700;
+    text-decoration: none;
+    color: #33272a;
+  }
+  
+  .session-list a {
+    color: #33272a;
+    text-decoration: none;
+    font-size: 1.0rem;
+    font-weight: 700;
+  }
+
+  .login {
+    margin-top: 50px;
+    width: 100%;
+    height: 100%;
+    background-image: url("/images/house_role.png");
+    background-size: cover;
+  }
+
+  .login-container {
+    width: 80%;
+    height: 100%;
+    padding: 30px;
+    background-color: #faeee7;
+    border: 2px solid #33272a;
+    border-radius: 7px;
+    margin: 0 auto;
+  }
+
+  .login-form {
+    color: #33272a;
+  }
+
+  .field {
+    color: #33272a;
+    margin-bottom: 10px;
+  }
+
+  .field input {
+    width: 100%;
+  }
+
+  /******************************************************** 
+  　ヘッダー
+  ********************************************************/
+  .header-main {
+    height: 100%;
+  }
+  
+  .logo-title {
+    text-align: center;
+    font-size: 2.0rem;
+    font-weight: 700;
+    text-decoration: none;
+  }
+  
+  .logo-title a {
+    color: #33272a;
+    text-decoration: none;
+  }
+  
+  .header-list {
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+  }
+  
+  .header-list a {
+    color: #33272a;
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 700;
+  }
+  
+  /******************************************************** 
+  　houses#index
+  ********************************************************/
+  .user-main {
+    width: 100%;
+    background-color: #faeee7;
+  }
+
+  .user {
+    padding: 30px 0;
+    width: 80%;
+    margin: 0 auto;
+  }
+
+  .nickname {
+    color: #33272a;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .introduction {
+    color: #33272a;
+    font-size: 1.0rem;
+    font-weight: 400;
+    border-bottom: 1px solid #33272a;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .new-house {
+    background-color: #33272a;
+    width: 65%;
+    height: 100%;
+    text-align: center;
+    line-height: 50px;
+    border-radius: 10px;
+  }
+
+  .new-house a {
+    color: #fffffe;
+    text-decoration: none;
+    font-size: 1.0rem;
+    font-weight: 700;
+  }
+
+  .my-house {
+    width: 90%;
+    margin: 0 auto;
+    padding-bottom: 50px;
+  }
+
+  .my-container {
+    margin-bottom: 50px;
+    background-color: #fffffe;
+    padding: 30px;
+    border-radius: 5px;
+  }
+
+  .house_index {
+    color: #33272a;
+    font-size: 1.3rem;
+    font-weight: 700;
+    text-align: center;
+    line-height: 50px;
+    width: 90%;
+    margin: 0 auto;
+    border-bottom: 1px solid #33272a;
+  }
+
+  .house-list {
+    color: #33272a;
+    font-size: 1.0rem;
+    font-weight: 700;
+    margin-top: 30px;
+  }
+
+  .house-name {
+    width: 100%;
+  }
+
+  .house-list-right a {
+    color: #33272a;
+    text-decoration: none;
+    display: block;
+    border-bottom: 3px solid #c3f0ca;
+    margin-bottom: 5px;
+    text-align: center;
+  }
+
+  /******************************************************** 
+  　roles#index
+  ********************************************************/
+  .role-main {
+    background-color: #faeee7;
+  }
+
+  .new-role {
+    width: 50%;
+    height: 50px;
+    margin: 0 auto;
+    border: 2px solid #33272a;
+    border-radius: 7px;
+    background-color: #33272a;
+  }
+
+  .new-role a {
+    color: #fffffe;
+    text-decoration: none;
+    font-size: 1.0rem;
+    line-height: 50px;
+    font-weight: 700;
+    line-height: 50px;
+    text-align: center;
+  }
+
+  .my-house-role {
+    margin-top: 50px;
+    padding-bottom: 50px;
+  }
+
+  .role-index {
+    color: #33272a;
+    width: 90%;
+    margin: 50px auto;
+  }
+
+  .category-name {
+    font-size: 1.0rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: #33272a;
+    border-bottom: 2px solid #33272a;
+  }
+
+  .role-container {
+    background-color: #fffffe;
+    border: 2px solid #33272a;
+    border-radius: 7px;
+    margin-bottom: 10px;
+    padding: 10px 30px;
+  }
+
+  .role-list {
+    color: #33272a;
+    font-size: 1.0rem;
+    font-weight: 700;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .role-content {
+    color: #33272a;
+    font-size: 1.0rem;
+    font-weight: 700;
+  }
+
+  .role-delete a {
+    color: #33272a;
+    font-size: 1.0rem;
+    font-weight: 700;
+    text-decoration: none;
+    border-bottom: 3px solid #c3f0ca;
+  }
+
+  /******************************************************** 
+  　house#new
+  ********************************************************/
+  .new-main {
+    background-color: #ffc6c7;
+    height: 100vh;
+  }
+
+  .new-form {
+    margin: 0 auto;
+    color: #33272a;
+  }
+
+  .infomation {
+    font-size: 1.2rem;
+    font-weight: 700;
+    padding: 110px 0 30px 0;
+    text-align: center;
+  }
+
+  .new-name {
+    margin-bottom: 15px;
+    font-size: 1.0rem;
+    font-weight: 700;
+  }
+
+  .new-introduction {
+    font-size: 1.0rem;
+    font-weight: 700;
+  }
+
+  .new-content {
+    font-size: 1.0rem;
+    font-weight: 700;
+  }
+
+  .new-text {
+    width: 400px;
+  }
+
+  .select-user-form select {
+    width: 400px;
+    font-size: 0.8rem;
+    font-weight: 400;
+    margin-top: 10px;
+  }
+
+  .new-btn {
+    margin-top: 20px;
+    display: flex;
+    justify-content: right;
+  }
+
+  /******************************************************** 
+  　user#search
+  ********************************************************/
+
+  .search-form {
+    width: 100%;
+    margin: 30px auto;
+    text-align: center;
+  }
+
+  .search-input {
+    width: 50%;
+  }
+}

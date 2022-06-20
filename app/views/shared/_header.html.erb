@@ -1,0 +1,12 @@
+<header>
+  <div class="header-main">
+    <div class="logo-title">
+      <%= link_to 'Share House Role', root_path %>
+    </div>
+    <div class="header-list">
+      <%= link_to 'ユーザー検索', search_users_path %>
+      <%= link_to 'マイページ', root_path %>
+      <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
+    </div>
+  </div>
+</header>

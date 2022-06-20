@@ -68,7 +68,7 @@
 
 
 
-## Category テーブル ActiveHash
+## Category テーブル (ActiveHash)
 self.data = [
   { id: 1, name: '---' },
   { id: 2, name: '全部屋共通' },

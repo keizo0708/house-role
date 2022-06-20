@@ -1,28 +1,375 @@
-<h1><%= @house.name %> ルール一覧</h1>
+<%= render 'shared/header' %>
 
-<div class="new-role">
-  <%= link_to "新規ルールを作成する", new_house_role_path(@house), class:"post" %>
-</div>
-
-<br/>
-
-<div class="role-category">
-  <div class="category-name">
-    全部屋共通
+<div class="role-main">
+  <div class="user">
+    <div class="nickname">
+      <%= "#{@house.name}" %>
+    </div>
+    <div class="introduction">
+      <%= "紹介文：#{@house.house_introduction}" %>
+    </div>
   </div>
-  <% @roles.where(category_id: 2).each do |role| %>
-    <div class="article">
-      <div class="article-title">
-        <%= role.title %>
-      </div>
-      <div class="article-text">       
-        <label>
-          <input type="checkbox" name="level" value="bad">
-          <%= role.content %>
-        </label>
-      </div>
+
+  <% if @house.users.ids.include?(current_user.id) %>
+    <div class="new-role">
+      <%= link_to "あたらしいルールをつくる！", new_house_role_path(@house), class:"post" %>
     </div>
   <% end %>
-</div>
 
-<br/>
+  <br/>
+
+  <div class="my-house-role">
+
+    <div class="role-index">
+      <div class="category-name">
+        全部屋共通
+      </div>
+      <% if @roles.where(category_id: 2).length >= 1 %>
+        <div class="role-container">
+          <% @roles.where(category_id: 2).each do |role| %>
+            <div class="role-list">
+              <div class="role-content">       
+                <label>
+                  <input type="checkbox" name="level" value="bad">
+                  <%= role.content %>
+                </label>
+              </div>
+              <% if @house.owner_id == current_user.id %>
+                <div class="role-delete">
+                  <%= link_to '削除', house_role_path(@house, role), method: :delete %>
+                </div>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="role-index">
+      <div class="category-name">
+        玄関
+      </div>
+      <% if @roles.where(category_id: 3).length >= 1 %>
+        <div class="role-container">
+          <% @roles.where(category_id: 3).each do |role| %>
+            <div class="role-list">
+              <div class="role-content">       
+                <label>
+                  <input type="checkbox" name="level" value="bad">
+                  <%= role.content %>
+                </label>
+              </div>
+              <% if @house.owner_id == current_user.id %>
+                <div class="role-delete">
+                  <%= link_to '削除', house_role_path(@house, role), method: :delete %>
+                </div>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="role-index">
+      <div class="category-name">
+        リビング
+      </div>
+      <% if @roles.where(category_id: 4).length >= 1 %>
+        <div class="role-container">
+          <% @roles.where(category_id: 4).each do |role| %>
+            <div class="role-list">
+              <div class="role-content">       
+                <label>
+                  <input type="checkbox" name="level" value="bad">
+                  <%= role.content %>
+                </label>
+              </div>
+              <% if @house.owner_id == current_user.id %>
+                <div class="role-delete">
+                  <%= link_to '削除', house_role_path(@house, role), method: :delete %>
+                </div>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="role-index">
+      <div class="category-name">
+        ダイニング
+      </div>
+      <% if @roles.where(category_id: 5).length >= 1 %>
+        <div class="role-container">
+          <% @roles.where(category_id: 5).each do |role| %>
+            <div class="role-list">
+              <div class="role-content">       
+                <label>
+                  <input type="checkbox" name="level" value="bad">
+                  <%= role.content %>
+                </label>
+              </div>
+              <% if @house.owner_id == current_user.id %>
+                <div class="role-delete">
+                  <%= link_to '削除', house_role_path(@house, role), method: :delete %>
+                </div>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="role-index">
+      <div class="category-name">
+        キッチン
+      </div>
+      <% if @roles.where(category_id: 6).length >= 1 %>
+        <div class="role-container">
+          <% @roles.where(category_id: 6).each do |role| %>
+            <div class="role-list">
+              <div class="role-content">       
+                <label>
+                  <input type="checkbox" name="level" value="bad">
+                  <%= role.content %>
+                </label>
+              </div>
+              <% if @house.owner_id == current_user.id %>
+                <div class="role-delete">
+                  <%= link_to '削除', house_role_path(@house, role), method: :delete %>
+                </div>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="role-index">
+      <div class="category-name">
+        洗面所
+      </div>
+      <% if @roles.where(category_id: 7).length >= 1 %>
+        <div class="role-container">
+          <% @roles.where(category_id: 7).each do |role| %>
+            <div class="role-list">
+              <div class="role-content">       
+                <label>
+                  <input type="checkbox" name="level" value="bad">
+                  <%= role.content %>
+                </label>
+              </div>
+              <% if @house.owner_id == current_user.id %>
+                <div class="role-delete">
+                  <%= link_to '削除', house_role_path(@house, role), method: :delete %>
+                </div>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="role-index">
+      <div class="category-name">
+        お風呂
+      </div>
+      <% if @roles.where(category_id: 8).length >= 1 %>
+        <div class="role-container">
+          <% @roles.where(category_id: 8).each do |role| %>
+            <div class="role-list">
+              <div class="role-content">       
+                <label>
+                  <input type="checkbox" name="level" value="bad">
+                  <%= role.content %>
+                </label>
+              </div>
+              <% if @house.owner_id == current_user.id %>
+                <div class="role-delete">
+                  <%= link_to '削除', house_role_path(@house, role), method: :delete %>
+                </div>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="role-index">
+      <div class="category-name">
+        トイレ
+      </div>
+      <% if @roles.where(category_id: 9).length >= 1 %>
+        <div class="role-container">
+          <% @roles.where(category_id: 9).each do |role| %>
+            <div class="role-list">
+              <div class="role-content">       
+                <label>
+                  <input type="checkbox" name="level" value="bad">
+                  <%= role.content %>
+                </label>
+              </div>
+              <% if @house.owner_id == current_user.id %>
+                <div class="role-delete">
+                  <%= link_to '削除', house_role_path(@house, role), method: :delete %>
+                </div>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="role-index">
+      <div class="category-name">
+        ベランダ
+      </div>
+      <% if @roles.where(category_id: 10).length >= 1 %>
+        <div class="role-container">
+          <% @roles.where(category_id: 10).each do |role| %>
+            <div class="role-list">
+              <div class="role-content">       
+                <label>
+                  <input type="checkbox" name="level" value="bad">
+                  <%= role.content %>
+                </label>
+              </div>
+              <% if @house.owner_id == current_user.id %>
+                <div class="role-delete">
+                  <%= link_to '削除', house_role_path(@house, role), method: :delete %>
+                </div>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="role-index">
+      <div class="category-name">
+        料理
+      </div>
+      <% if @roles.where(category_id: 11).length >= 1 %>
+        <div class="role-container">
+          <% @roles.where(category_id: 11).each do |role| %>
+            <div class="role-list">
+              <div class="role-content">       
+                <label>
+                  <input type="checkbox" name="level" value="bad">
+                  <%= role.content %>
+                </label>
+              </div>
+              <% if @house.owner_id == current_user.id %>
+                <div class="role-delete">
+                  <%= link_to '削除', house_role_path(@house, role), method: :delete %>
+                </div>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="role-index">
+      <div class="category-name">
+        掃除
+      </div>
+      <% if @roles.where(category_id: 12).length >= 1 %>
+        <div class="role-container">
+          <% @roles.where(category_id: 12).each do |role| %>
+            <div class="role-list">
+              <div class="role-content">       
+                <label>
+                  <input type="checkbox" name="level" value="bad">
+                  <%= role.content %>
+                </label>
+              </div>
+              <% if @house.owner_id == current_user.id %>
+                <div class="role-delete">
+                  <%= link_to '削除', house_role_path(@house, role), method: :delete %>
+                </div>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="role-index">
+      <div class="category-name">
+        洗濯
+      </div>
+      <% if @roles.where(category_id: 13).length >= 1 %>
+        <div class="role-container">
+          <% @roles.where(category_id: 13).each do |role| %>
+            <div class="role-list">
+              <div class="role-content">       
+                <label>
+                  <input type="checkbox" name="level" value="bad">
+                  <%= role.content %>
+                </label>
+              </div>
+              <% if @house.owner_id == current_user.id %>
+                <div class="role-delete">
+                  <%= link_to '削除', house_role_path(@house, role), method: :delete %>
+                </div>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="role-index">
+      <div class="category-name">
+        収納
+      </div>
+      <% if @roles.where(category_id: 14).length >= 1 %>
+        <div class="role-container">
+          <% @roles.where(category_id: 14).each do |role| %>
+            <div class="role-list">
+              <div class="role-content">       
+                <label>
+                  <input type="checkbox" name="level" value="bad">
+                  <%= role.content %>
+                </label>
+              </div>
+              <% if @house.owner_id == current_user.id %>
+                <div class="role-delete">
+                  <%= link_to '削除', house_role_path(@house, role), method: :delete %>
+                </div>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="role-index">
+      <div class="category-name">
+        その他
+      </div>
+      <% if @roles.where(category_id: 15).length >= 1 %>
+        <div class="role-container">
+          <% @roles.where(category_id: 15).each do |role| %>
+            <div class="role-list">
+              <div class="role-content">       
+                <label>
+                  <input type="checkbox" name="level" value="bad">
+                  <%= role.content %>
+                </label>
+              </div>
+              <% if @house.owner_id == current_user.id %>
+                <div class="role-delete">
+                  <%= link_to '削除', house_role_path(@house, role), method: :delete %>
+                </div>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+
+  </div>
+
+</div>

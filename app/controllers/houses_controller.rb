@@ -5,6 +5,7 @@ class HousesController < ApplicationController
   def index
     @houses = House.all
     @users = User.all
+    @user = current_user
     @followings = current_user.followings
     @followers = current_user.followers
   end
@@ -12,7 +13,7 @@ class HousesController < ApplicationController
   def join
     @house = House.find(params[:house_id])
     @house.users << current_user
-    redirect_to houses_path
+    redirect_to request.referer
   end
 
   def new
@@ -24,7 +25,7 @@ class HousesController < ApplicationController
     @house.owner_id = current_user.id
     @house.users << current_user
     if @house.save
-      redirect_to root_path
+      redirect_to user_path(current_user.id)
     else
       render :new
     end 
@@ -35,7 +36,7 @@ class HousesController < ApplicationController
 
   def update
     if @house.update(house_params)
-      redirect_to action: :show
+      redirect_to user_path(current_user.id)
     else
       render :edit
     end 
@@ -44,22 +45,14 @@ class HousesController < ApplicationController
   def destroy
     @house = House.find(params[:id])
     @house.users.destroy(current_user)
-    redirect_to root_path
+    redirect_to request.referer
   end
 
   def all_destroy
     @house = House.find(params[:house_id])
     if @house.destroy
-      redirect_to root_path
+      redirect_to request.referer
     end
-  end
-
-  def show
-    @house = House.find(params[:id])
-
-    gon.user_nickname = current_user.nickname
-    @roles = @house.roles.all
-    @role = @house.roles.new
   end
 
   private
@@ -71,7 +64,7 @@ class HousesController < ApplicationController
   def ensure_correct_user
     @house = House.find(params[:id])
     unless @house.owner_id == current_user.id
-      redirect_to action: :show
+      redirect_to action: :index
     end
   end
 
