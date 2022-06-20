@@ -3,7 +3,7 @@
 <div class="user-main">
   <div class="user">
     <div class="nickname">
-      <%= "#{@user.nickname}さん マイページ" %>
+      <%= "#{@user.nickname}さんのページへようこそ" %>
     </div>
     <div class="introduction">
       <%= "紹介文：#{@user.user_introduction}" %>
@@ -22,18 +22,17 @@
       <div class="house_index">
         マイハウス一覧
       </div>
-      <% @houses.where(owner_id: current_user.id).each do |house| %>
+      <% @houses.where(owner_id: @user.id).each do |house| %>
         <div class="house-list">
           <div class="house-list-left">
             <div class="house-name">
               <li><%= house.name %></li>
             </div>
-            <div class="house-introduction">
-              <%= house.house_introduction %>
-            </div>
           </div>
           <div class="house-list-right">
-            <%= link_to 'ルールを見る', house_roles_path(house), method: :get %>
+            <% if @user.following_ids.include?(current_user.id) %>
+              <%= link_to 'ルールを見る', house_roles_path(house), method: :get %>
+            <% end %>
             <% if house.owner_id == current_user.id %>
               <%= link_to '編集する', edit_house_path(house.id) %>
               <%= link_to '削除する', house_all_destroy_path(house.id), method: :delete %>
@@ -53,16 +52,15 @@
             <div class="house-name">
               <li><%= house.name %></li>
             </div>
-            <div class="house-introduction">
-              <%= house.house_introduction %>
-            </div>
           </div>
           <div class="house-list-right">
-            <%= link_to 'ルールを見る', house_roles_path(house), method: :get %>
-            <% if house.users.ids.include?(current_user.id) %>
-              <%= link_to '退会する', house_path(house), method: :delete %>
-            <% else %>
-              <%= link_to '参加する', house_join_path(house) %>
+            <% if @user.following_ids.include?(current_user.id) %>
+              <%= link_to 'ルールを見る', house_roles_path(house), method: :get %>
+              <% if house.users.ids.include?(current_user.id) %>
+                <%= link_to '退会する', house_path(house), method: :delete %>
+              <% else %>
+                <%= link_to '参加する', house_join_path(house) %>
+              <% end %>
             <% end %>
           </div>
         </div>
@@ -78,9 +76,6 @@
           <div class="house-list-left">
             <div class="house-name">
               <li><%= following.nickname %></li>
-            </div>
-            <div class="house-introduction">
-              <%= following.user_introduction %>
             </div>
           </div>
           <div class="house-list-right">
@@ -100,9 +95,6 @@
           <div class="house-list-left">
             <div class="house-name">
               <li><%= follower.nickname %></li>
-            </div>
-            <div class="house-introduction">
-              <%= follower.user_introduction %>
             </div>
           </div>
           <div class="house-list-right">
