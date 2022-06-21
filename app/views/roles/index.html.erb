@@ -10,13 +10,36 @@
     </div>
   </div>
 
-  <% if @house.users.ids.include?(current_user.id) %>
-    <div class="new-role">
-      <%= link_to "あたらしいルールをつくる！", new_house_role_path(@house), class:"post" %>
+  <% if @house.owner_id == current_user.id %>
+    <div class="new-role-index">
+
+      <% if @house.users.ids.include?(current_user.id) %>
+        <%= form_with model: [@house, @role], id:"form", local: true do |f| %>
+          <div class="role-input-form">
+            <div class="new-role-name">
+              <%= f.label :content, "カテゴリー" %><br/>
+              <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"genre-select"}) %>
+            </div>
+            <div class="new-role-content">
+              <%= f.label :content, "内容" %><br/>
+              <%= f.text_area :content, id:"content", placeholder:"（必須 1000文字まで)", maxlength:"40" %>
+            </div>
+            <div class="new-btn">
+              <%= f.submit "新規ルールを作成する", id:"submit" %>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+
+      <div class="new-role-container">
+        <div class="list", id="list">
+        </div>
+      </div>
+      
     </div>
   <% end %>
 
-  <br/>
+
 
   <div class="my-house-role">
 

@@ -215,6 +215,48 @@
   padding-bottom: 50px;
 }
 
+.new-role-index {
+}
+
+.role-input-form {
+  color: #33272a;
+  width: 500px;
+  margin: 30px auto;
+}
+
+.new-role-name {
+}
+
+.new-role-name select {
+  width: 500px;
+}
+
+.new-role-content textarea {
+  width: 500px;
+  height: 100px;
+}
+
+.new-role-container {
+  width: 500px;
+  background-color: #fffffe;
+  border: 1px solid #33272a;
+  margin: 0 auto 80px;
+}
+
+.new-role-list {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px;
+}
+
+.new-role-category {
+
+}
+
+.new-role-content {
+
+}
+
 .role-index {
   color: #33272a;
   width: 900px;
@@ -246,7 +288,6 @@
 }
 
 .role-content {
-
   color: #33272a;
   font-size: 1.0rem;
   font-weight: 700;

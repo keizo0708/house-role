@@ -2,6 +2,9 @@ class RolesController < ApplicationController
   def index
     @house = House.find(params[:house_id])
     @roles = @house.roles.order("created_at ASC")
+
+    @role = Role.new
+    gon.house_id = @house.id
   end
   
   def new
@@ -11,12 +14,14 @@ class RolesController < ApplicationController
 
   def create
     @house = House.find(params[:house_id])
-    @role = @house.roles.new(role_params)
-    if @role.save
-      redirect_to action: :index
-    else
-      render :new
-    end
+    post = @house.roles.create(role_params)
+    category = post.category.name
+    render json:{ post: post, category: category }
+    #if @role.save
+    #  redirect_to root_path
+    #else
+    #  render :new
+    #end
   end
 
   def destroy
