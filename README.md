@@ -57,7 +57,6 @@
 ## Roles テーブル
 | Column      | Type       | Options           |
 |-------------|------------|-------------------|
-| title       | string     | null: false       |
 | content     | text       | null: false       |
 | category_id | integer    | null: false       |
 | house_id    | references | foreign_key: true |
