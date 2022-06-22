@@ -102,7 +102,7 @@
 
 .nickname {
   color: #33272a;
-  font-size: 2.0rem;
+  font-size: 1.5rem;
   font-weight: 700;
   text-align: center;
 }
@@ -448,7 +448,7 @@
   
   .logo-title {
     text-align: center;
-    font-size: 2.0rem;
+    font-size: 1.5rem;
     font-weight: 700;
     text-decoration: none;
   }
@@ -488,7 +488,7 @@
 
   .nickname {
     color: #33272a;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     font-weight: 700;
     margin: 0 auto;
     text-align: center;

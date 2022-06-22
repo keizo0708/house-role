@@ -10,7 +10,7 @@
     </div>
     <% if @user.id == current_user.id %>
       <div class="new-house">
-        <%= link_to 'あたらしいHouseをつくる！', new_house_path %>
+        <%= link_to 'ハウスを作成しよう！', new_house_path %>
       </div>
     <% end %>
   </div>
@@ -20,7 +20,7 @@
   <div class="my-house">
     <div class="my-container">
       <div class="house_index">
-        マイハウス一覧
+        ハウス一覧（あなたがオーナー）
       </div>
       <% @houses.where(owner_id: current_user.id).each do |house| %>
         <div class="house-list">
@@ -42,7 +42,7 @@
 
     <div class="my-container">
       <div class="house_index">
-        所属ハウス一覧
+        ハウス一覧（あなたはクルー）
       </div>
       <% @user.houses.where.not(owner_id: current_user.id).each do |house| %>
         <div class="house-list">
@@ -65,7 +65,7 @@
 
     <div class="my-container">
       <div class="house_index">
-        フォロー
+        閲覧を許可しているユーザー
       </div>
       <% @followings.each do |following| %>
         <div class="house-list">
@@ -84,7 +84,7 @@
 
     <div class="my-container">
       <div class="house_index">
-        フォロワー
+        閲覧を許可されているユーザー
       </div>
       <% @followers.each do |follower| %>
         <div class="house-list">
