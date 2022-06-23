@@ -1,17 +1,17 @@
 class HousesController < ApplicationController
   before_action :authenticate_user!
-  before_action :ensure_correct_user, only: [:edit, :update]
+  before_action :set_house, only: [:join, :all_destroy]
+  
 
   def index
     @houses = House.all
     @users = User.all
     @user = current_user
-    @followings = current_user.followings
-    @followers = current_user.followers
+    @followings = @user.followings
+    @followers = @user.followers
   end
 
   def join
-    @house = House.find(params[:house_id])
     @house.users << current_user
     redirect_to request.referer
   end
@@ -49,7 +49,6 @@ class HousesController < ApplicationController
   end
 
   def all_destroy
-    @house = House.find(params[:house_id])
     if @house.destroy
       redirect_to request.referer
     end
@@ -61,11 +60,7 @@ class HousesController < ApplicationController
     params.require(:house).permit(:name, :house_introduction)
   end
 
-  def ensure_correct_user
-    @house = House.find(params[:id])
-    unless @house.owner_id == current_user.id
-      redirect_to action: :index
-    end
+  def set_house
+    @house = House.find(params[:house_id])
   end
-
 end

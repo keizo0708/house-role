@@ -54,7 +54,7 @@ RSpec.describe 'ハウス編集', type: :system do
       find('input[name="commit"]').click
       expect(current_path).to eq(root_path)
       # ハウス1に「編集」へのリンクがあることを確認する
-      expect(page).to have_link '編集する', href: edit_house_path(@house1.id)
+      expect(page).to have_link '編集する', href: "/houses/#{@house.id}/edit"
       # 編集ページへ遷移する
       visit edit_tweet_path(@house1)
       # すでに投稿済みの内容がフォームに入っていることを確認する
