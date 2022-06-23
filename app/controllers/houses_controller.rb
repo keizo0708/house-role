@@ -25,7 +25,7 @@ class HousesController < ApplicationController
     @house.owner_id = current_user.id
     @house.users << current_user
     if @house.save
-      redirect_to user_path(current_user.id)
+      redirect_to house_roles_path(@house)
     else
       render :new
     end 

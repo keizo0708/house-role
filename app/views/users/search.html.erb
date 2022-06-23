@@ -4,10 +4,10 @@
   <div class="my-house">
     <div class="my-container">
       <div class="house_index">
-        ユーザーを探そう！
+        ユーザー一覧
       </div>
       <%= form_with(url: search_users_path, local: true, method: :get, class: "search-form") do |form| %>
-        <%= form.text_field :keyword, placeholder: "投稿を検索する", class: "search-input" %>
+        <%= form.text_field :keyword, placeholder: "検索する", class: "search-input" %>
         <%= form.submit "検索", class: "search-btn" %>
       <% end %>
       <% @users.where.not(id: current_user.id).each do |user| %>

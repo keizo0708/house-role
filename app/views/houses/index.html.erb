@@ -1,16 +1,18 @@
 <%= render 'shared/header' %>
 
 <div class="user-main">
+
   <div class="user">
-    <div class="nickname">
-      <%= "#{@user.nickname}さんのマイページ" %>
-    </div>
-    <div class="introduction">
-      <%= "紹介文：#{@user.user_introduction}" %>
+    <div class="app-introduction">
+      <h2>ハウスルールとは、ホストがゲストに守ってもらいたい家の決まりごと</h2>
+      <p>たとえば、</p>
+      <p>家事当番、洗濯物の干し方や畳み方、観葉植物の水やり、ごみの捨て方、静かにしてほしい時間帯...など</p>
+      <p>気にするポイントは人それぞれ</p>
+      <p>だからこそ、シェアハウスルールを利用してお互いのルールを共有しよう</p>
     </div>
     <% if @user.id == current_user.id %>
       <div class="new-house">
-        <%= link_to 'ハウスを作成しよう！', new_house_path %>
+        <%= link_to 'ハウスを作成する', new_house_path %>
       </div>
     <% end %>
   </div>
@@ -18,9 +20,15 @@
   <br/>
 
   <div class="my-house">
+    <div class="app-introduction">
+      <h3>ホストとは？</h3>
+      <p>ハウスを作成したらあなたはホストになります</p>
+      <p>次はルールブックを開いて、ルールを作成してみましょう</p>
+      <p>なお、ルールの作成・削除はホストのみが行えます</p>
+    </div>
     <div class="my-container">
       <div class="house_index">
-        ハウス一覧（あなたがオーナー）
+        ハウス一覧（ホスト）
       </div>
       <% @houses.where(owner_id: current_user.id).each do |house| %>
         <div class="house-list">
@@ -30,19 +38,25 @@
             </div>
           </div>
           <div class="house-list-right">
-            <%= link_to 'ルールを見る', house_roles_path(house), method: :get %>
+            <%= link_to 'ルールブック', house_roles_path(house), method: :get %>
             <% if house.owner_id == current_user.id %>
-              <%= link_to '編集する', edit_house_path(house.id) %>
-              <%= link_to '削除する', house_all_destroy_path(house.id), method: :delete %>
+              <%= link_to '編集', edit_house_path(house.id) %>
+              <%= link_to '削除', house_all_destroy_path(house.id), method: :delete %>
             <% end %>
           </div>
         </div>
       <% end %>
     </div>
 
+    <div class="app-introduction">
+      <h3>ゲストとは？</h3>
+      <p>他のユーザーが作成したハウスにゲストとして参加することができます</p>
+      <p>なお、ホストがあなたをフォローしていない場合は参加することができません</p>
+      <p>ハウスに参加できたら、さっそくルールブックを確認してみましょう</p>
+    </div>
     <div class="my-container">
       <div class="house_index">
-        ハウス一覧（あなたはクルー）
+        ハウス一覧（ゲスト）
       </div>
       <% @user.houses.where.not(owner_id: current_user.id).each do |house| %>
         <div class="house-list">
@@ -52,20 +66,26 @@
             </div>
           </div>
           <div class="house-list-right">
-            <%= link_to 'ルールを見る', house_roles_path(house), method: :get %>
             <% if house.user_ids.include?(current_user.id) %>
-              <%= link_to '退会する', house_path(house), method: :delete %>
+              <%= link_to 'ルールブック', house_roles_path(house), method: :get %>
+              <%= link_to '退会', house_path(house), method: :delete %>
             <% else %>
-              <%= link_to '参加する', house_join_path(house) %>
+              <%= link_to '参加', house_join_path(house) %>
             <% end %>
           </div>
         </div>
       <% end %>
     </div>
 
+    <div class="app-introduction">
+      <h3>フォローとは？</h3>
+      <p>友達を探してフォローしましょう</p>
+      <p>フォローしたユーザーは、あなたのハウスにゲストとして参加することができます</p>
+      <p>また、ゲストはハウスルールを閲覧することができます</p>
+    </div>
     <div class="my-container">
       <div class="house_index">
-        閲覧を許可しているユーザー
+        フォロー一覧
       </div>
       <% @followings.each do |following| %>
         <div class="house-list">
@@ -75,16 +95,22 @@
             </div>
           </div>
           <div class="house-list-right">
-            <%= link_to '詳細をみる', user_path(following) %>
+            <%= link_to '詳細', user_path(following) %>
             <%= render 'relationships/follow_button', user: following %>
           </div>
         </div>
       <% end %>
     </div>
 
+    <div class="app-introduction">
+      <h3>フォロワーとは？</h3>
+      <p>あなたをフォローしているユーザーです</p>
+      <p>フォロワーのハウスにゲストとして参加することができます</p>
+    </div>
+
     <div class="my-container">
       <div class="house_index">
-        閲覧を許可されているユーザー
+        フォロワー一覧
       </div>
       <% @followers.each do |follower| %>
         <div class="house-list">
@@ -94,7 +120,7 @@
             </div>
           </div>
           <div class="house-list-right">
-            <%= link_to '詳細をみる', user_path(follower) %>
+            <%= link_to '詳細', user_path(follower) %>
             <%= render 'relationships/follow_button', user: follower %>
           </div>
         </div>

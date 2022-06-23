@@ -3,7 +3,7 @@
 ********************************************************/
 .session-header {
   width: 100vw;
-  height: 100px;
+  height: 120px;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -13,11 +13,11 @@
   font-size: 2.5rem;
   font-weight: 700;
   text-decoration: none;
-  color: #33272a;
+  color: #020826;
 }
 
 .session-list a {
-  color: #33272a;
+  color: #020826;
   text-decoration: none;
   font-size: 1.5rem;
   font-weight: 700;
@@ -33,18 +33,18 @@
   width: 650px;
   height: 160px;
   padding: 30px;
-  background-color: #faeee7;
-  border: 2px solid #33272a;
+  background-color: #eaddcf;
+  border: 2px solid #020826;
   border-radius: 7px;
   margin: 0 auto;
 }
 
 .login-form {
-  color: #33272a;
+  color: #020826;
 }
 
 .field {
-  color: #33272a;
+  color: #020826;
   margin-bottom: 10px;
 }
 
@@ -57,18 +57,20 @@
 ********************************************************/
 
 .header-main {
-  height: 100px;
-  border-bottom: 2px solid #33272a;
+  height: 120px;
+  border-bottom: 2px solid #020826;
+  background-color: #f9f4ef;
 }
 
 .logo-title {
   text-align: center;
-  font-size: 2.4rem;
+  font-size: 2.3rem;
   font-weight: 700;
+  padding-top: 15px;
 }
 
 .logo-title a {
-  color: #33272a;
+  color: #020826;
   text-decoration: none;
 }
 
@@ -81,7 +83,7 @@
 }
 
 .header-list a {
-  color: #33272a;
+  color: #020826;
   text-decoration: none;
   font-size: 1.0rem;
   font-weight: 700;
@@ -91,7 +93,7 @@
 　houses#index
 ********************************************************/
 .user-main {
-  background-color: #faeee7;
+  background-color: #fffffe;
 }
 
 .user {
@@ -100,18 +102,26 @@
   margin: 0 auto;
 }
 
+.app-introduction {
+  text-align: center;
+}
+
+.app-introduction p {
+  color: #8c7851;
+}
+
 .nickname {
-  color: #33272a;
+  color: #020826;
   font-size: 1.5rem;
   font-weight: 700;
   text-align: center;
 }
 
 .introduction {
-  color: #33272a;
+  color: #020826;
   font-size: 1.5rem;
   font-weight: 400;
-  border-bottom: 1px solid #33272a;
+  border-bottom: 1px solid #020826;
   text-align: center;
 }
 
@@ -122,7 +132,7 @@
   margin: 70px auto 0;
   text-align: center;
   border-radius: 7px;
-  background-color: #33272a;
+  background-color: #8c7851;
 }
 
 .new-house a {
@@ -144,24 +154,24 @@
 
 .my-container {
   margin-bottom: 50px;
-  background-color: #fffffe;
+  background-color: #eaddcf;
   padding: 30px;
   border-radius: 5px;
 }
 
 .house_index {
-  color: #33272a;
+  color: #020826;
   font-size: 1.5rem;
   font-weight: 700;
   text-align: center;
   line-height: 50px;
   width: 600px;
   margin: 0 auto;
-  border-bottom: 1px solid #33272a;
+  border-bottom: 1px solid #020826;
 }
 
 .house-list {
-  color: #33272a;
+  color: #020826;
   font-size: 1.0rem;
   font-weight: 700;
   display: flex;
@@ -178,7 +188,7 @@
 }
 
 .house-list-right a {
-  color: #33272a;
+  color: #020826;
   text-decoration: none;
   display: block;
   border-bottom: 3px solid #c3f0ca;
@@ -190,7 +200,7 @@
 　roles#index
 ********************************************************/
 .role-main {
-  background-color: #faeee7;
+  background-color: #fffffe;
 }
 
 .new-role {
@@ -219,7 +229,7 @@
 }
 
 .role-input-form {
-  color: #33272a;
+  color: #020826;
   width: 500px;
   margin: 30px auto;
 }
@@ -239,7 +249,7 @@
 .new-role-container {
   width: 500px;
   background-color: #fffffe;
-  border: 1px solid #33272a;
+  border: 1px solid #020826;
   margin: 0 auto 80px;
 }
 
@@ -258,7 +268,7 @@
 }
 
 .role-index {
-  color: #33272a;
+  color: #020826;
   width: 900px;
   margin: 30px auto;
 }
@@ -268,19 +278,19 @@
   font-weight: 700;
   margin-bottom: 20px;
   color: #33272a;
-  border-bottom: 2px solid #33272a;
+  border-bottom: 2px solid #020826;
 }
 
 .role-container {
-  background-color: #fffffe;
-  border: 2px solid #33272a;
+  background-color: #eaddcf;
+  border: 2px solid #020826;
   border-radius: 7px;
   margin-bottom: 10px;
   padding: 10px 30px;
 }
 
 .role-list {
-  color: #33272a;
+  color: #020826;
   font-size: 1.0rem;
   font-weight: 700;
   display: flex;
@@ -288,13 +298,14 @@
 }
 
 .role-content {
-  color: #33272a;
+  color: #020826;
   font-size: 1.0rem;
   font-weight: 700;
+  width: 700px;
 }
 
 .role-delete a {
-  color: #33272a;
+  color: #020826;
   font-size: 1.0rem;
   font-weight: 700;
   text-decoration: none;
@@ -306,7 +317,7 @@
 ********************************************************/
 
 .new-main {
-  background-color: #faeee7;
+  background-color: #fffffe;
   height: calc(100vh - 100px);
 }
 
@@ -398,11 +409,11 @@
     font-size: 2.0rem;
     font-weight: 700;
     text-decoration: none;
-    color: #33272a;
+    color: #020826;
   }
   
   .session-list a {
-    color: #33272a;
+    color: #020826;
     text-decoration: none;
     font-size: 1.0rem;
     font-weight: 700;
@@ -420,18 +431,18 @@
     width: 80%;
     height: 100%;
     padding: 30px;
-    background-color: #faeee7;
-    border: 2px solid #33272a;
+    background-color: #eaddcf;
+    border: 2px solid #020826;
     border-radius: 7px;
     margin: 0 auto;
   }
 
   .login-form {
-    color: #33272a;
+    color: #020826;
   }
 
   .field {
-    color: #33272a;
+    color: #020826;
     margin-bottom: 10px;
   }
 
@@ -454,7 +465,7 @@
   }
   
   .logo-title a {
-    color: #33272a;
+    color: #020826;
     text-decoration: none;
   }
   
@@ -466,7 +477,7 @@
   }
   
   .header-list a {
-    color: #33272a;
+    color: #020826;
     text-decoration: none;
     font-size: 0.8rem;
     font-weight: 700;
@@ -477,7 +488,7 @@
   ********************************************************/
   .user-main {
     width: 100%;
-    background-color: #faeee7;
+    background-color: #fffffe;
   }
 
   .user {
@@ -487,7 +498,7 @@
   }
 
   .nickname {
-    color: #33272a;
+    color: #020826;
     font-size: 1.3rem;
     font-weight: 700;
     margin: 0 auto;
@@ -498,13 +509,13 @@
     color: #33272a;
     font-size: 1.0rem;
     font-weight: 400;
-    border-bottom: 1px solid #33272a;
+    border-bottom: 1px solid #020826;
     margin: 0 auto;
     text-align: center;
   }
 
   .new-house {
-    background-color: #33272a;
+    background-color: #8c7851;
     width: 65%;
     height: 100%;
     text-align: center;
@@ -527,24 +538,24 @@
 
   .my-container {
     margin-bottom: 50px;
-    background-color: #fffffe;
+    background-color: #eaddcf;
     padding: 30px;
     border-radius: 5px;
   }
 
   .house_index {
-    color: #33272a;
+    color: #020826;
     font-size: 1.3rem;
     font-weight: 700;
     text-align: center;
     line-height: 50px;
     width: 90%;
     margin: 0 auto;
-    border-bottom: 1px solid #33272a;
+    border-bottom: 1px solid #020826;
   }
 
   .house-list {
-    color: #33272a;
+    color: #020826;
     font-size: 1.0rem;
     font-weight: 700;
     margin-top: 30px;
@@ -555,7 +566,7 @@
   }
 
   .house-list-right a {
-    color: #33272a;
+    color: #020826;
     text-decoration: none;
     display: block;
     border-bottom: 3px solid #c3f0ca;
@@ -567,16 +578,16 @@
   　roles#index
   ********************************************************/
   .role-main {
-    background-color: #faeee7;
+    background-color: #fffffe;
   }
 
   .new-role {
     width: 50%;
     height: 50px;
     margin: 0 auto;
-    border: 2px solid #33272a;
+    border: 2px solid #020826;
     border-radius: 7px;
-    background-color: #33272a;
+    background-color: #020826;
   }
 
   .new-role a {
@@ -594,8 +605,51 @@
     padding-bottom: 50px;
   }
 
+  .new-role-index {
+  }
+  
+  .role-input-form {
+    color: #020826;
+    width: 80%;
+    margin: 30px auto;
+  }
+  
+  .new-role-name {
+  }
+  
+  .new-role-name select {
+    width: 100%;
+    margin: 0 auto;
+  }
+  
+  .new-role-content textarea {
+    width: 100%;
+    height: 100px;
+  }
+  
+  .new-role-container {
+    width: 80%;
+    background-color: #fffffe;
+    border: 1px solid #020826;
+    margin: 0 auto 80px;
+  }
+  
+  .new-role-list {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
+  }
+  
+  .new-role-category {
+  
+  }
+  
+  .new-role-content {
+  
+  }
+
   .role-index {
-    color: #33272a;
+    color: #020826;
     width: 90%;
     margin: 50px auto;
   }
@@ -605,19 +659,19 @@
     font-weight: 700;
     margin-bottom: 10px;
     color: #33272a;
-    border-bottom: 2px solid #33272a;
+    border-bottom: 2px solid #020826;
   }
 
   .role-container {
-    background-color: #fffffe;
-    border: 2px solid #33272a;
+    background-color: #eaddcf;
+    border: 2px solid #020826;
     border-radius: 7px;
     margin-bottom: 10px;
     padding: 10px 30px;
   }
 
   .role-list {
-    color: #33272a;
+    color: #020826;
     font-size: 1.0rem;
     font-weight: 700;
     display: flex;
@@ -625,13 +679,14 @@
   }
 
   .role-content {
-    color: #33272a;
+    color: #020826;
     font-size: 1.0rem;
     font-weight: 700;
+    width: 80%;
   }
 
   .role-delete a {
-    color: #33272a;
+    color: #020826;
     font-size: 1.0rem;
     font-weight: 700;
     text-decoration: none;
@@ -648,7 +703,7 @@
 
   .new-form {
     margin: 0 auto;
-    color: #33272a;
+    color: #020826;
   }
 
   .infomation {
